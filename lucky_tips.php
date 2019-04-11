@@ -2,7 +2,9 @@
 $log_file = 'log/log.txt';
 $name_date = '';
 $tips = '';
+$data = [];
 
+//ログへの書き込み
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (exist_check($_POST['name']) === TRUE && exist_check($_POST['tips']) === TRUE) {
         $name_date = date('Y-m-d H:i:s') . "\t" . $_POST['name'] . "\n";
@@ -17,6 +19,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+//読み込みして表示
+if (is_readable($log_file) === TRUE) {
+    if (($fp = fopen($log_file, 'r')) !== FALSE) {
+        while (($tmp = fgets($fp)) !== FALSE) {
+            $data[] = e($tmp);
+        }
+        fclose($fp);
+    }
+} else {
+    $data[] = 'ファイルが存在していません';
+}
+
+//null、空文字、空白文字のチェック
 function exist_check(string $str): bool {
     if (!isset($str) || $str === '') {
         return false;
@@ -27,6 +42,7 @@ function exist_check(string $str): bool {
     }
 }
 
+//エスケープ
 function e(string $str, string $charset = 'UTF-8'):string {
     return htmlspecialchars($str, ENT_QUOTES | ENT_HTML5, $charset);
 }
@@ -39,6 +55,7 @@ function e(string $str, string $charset = 'UTF-8'):string {
 <head>
     <meta charset="UTF-8">
     <title>Today's Lucky Tips</title>
+    <link rel="stylesheet" href="css/lucky_tips.css">
 </head>
 <body>
     <header>
@@ -55,10 +72,16 @@ function e(string $str, string $charset = 'UTF-8'):string {
         </section>
         <section class="contents">
             <h3>幸せな出来事たち</h3>
-            <div class="tips">
-                <p></p>
-                <p></p>
-            </div>
+<?php foreach ($data as $key => $line) {
+    if (intval($key) % 2 === 0) {
+        print '<div>';
+        print '<p>' . $line . '</p>';
+    } else {
+        print '<p>' . $line . '</p>';
+        print '</div>';
+    }
+}
+?>
         </section>
     </article>
 </body>
