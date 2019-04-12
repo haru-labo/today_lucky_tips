@@ -1,3 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0 auto;
+    width: 900px;
+}
+
+h3 {
+    width: 100%;
+}
+
+.error_msg li {
+    color: red;
+    font-weight: bold;
+    list-style: none;
+}
+
+.contents p {
+    margin: 5px 5px;
+    word-wrap: break-word;
+}
+
+.contents {
+    align-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .contents div {
     border: solid blue 1px;
+    border-radius: 10px;
+    margin: 5px auto;
+    width: 200px;
 }
