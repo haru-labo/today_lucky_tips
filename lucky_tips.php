@@ -3,7 +3,7 @@ $log_file = 'log/log.txt';
 $name_date = '';
 $tips = '';
 $data = [];
-$arr_valid = [];
+$arr_valid = ['msg' => [], 'result' => true];
 $valid_msg = [];
 
 //ログへの書き込み
@@ -107,10 +107,13 @@ function e(string $str, string $charset = 'UTF-8'):string {
     <article>
         <section class="share">
             <h2>今日の幸せをシェアしよう！</h2>
-            <?php foreach ($arr_valid['msg'] as $msg) {
-                print '<ul class="error_msg">';
-                print '<li>' . e($msg) . '</li>';
-                print '</ul>';
+            <?php 
+            if(is_array($arr_valid['msg'])){
+               foreach ($arr_valid['msg'] as $msg) {
+                    print '<ul class="error_msg">';
+                    print '<li>' . e($msg) . '</li>';
+                    print '</ul>';
+                }
             }
             ?>
             <form method="post" class="form">
