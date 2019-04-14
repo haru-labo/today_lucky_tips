@@ -80,7 +80,7 @@ form {
     width: 50%;
 }
 
-.form_label {
+.form-label {
     font-size: 16px;
     margin-bottom: 2px;
     margin-top: 8px;
@@ -97,24 +97,24 @@ form {
     padding: 8px;
 }
 
-.error_msg li {
+.error-msg li {
     color: #F71735;
     font-weight: bold;
     list-style: none;
     text-align: right;
 }
 
-.form_name {
+.form-name {
     color: #011627;
     margin-bottom: 10px;
 }
 
-.form_tips {
+.form-tips {
     color: #011627;
     margin-bottom: 5px;
 }
 
-.form_name input {
+.form-name input {
     background-color: #FDFFFC;
     border: inset;
     border-radius: 8px;
@@ -125,7 +125,7 @@ form {
     width: 100%;
 }
 
-.form_tips textarea {
+.form-tips textarea {
     background-color: #FDFFFC;
     border: inset;
     border-radius: 8px;
@@ -149,7 +149,7 @@ form {
     padding: 10px 5px;
 }
 
-.content_wrapper {
+.content-wrapper {
     background-color: #ffffff;
     border: 2px solid #41EAD4;
     border-radius: 15px;
@@ -159,7 +159,7 @@ form {
     width: 240px;
 }
 
-.date_name_wrapper {
+.date-name-wrapper {
     margin: 5px;
     position: absolute;
     bottom: 0;
@@ -176,7 +176,7 @@ form {
     margin: 5px;
 }
 
-.name, .input_date {
+.name, .input-date {
     font-size: 10px;
     text-align: right;
 }

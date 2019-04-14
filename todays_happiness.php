@@ -128,20 +128,20 @@ function e(string $str, string $charset = 'UTF-8'):string {
     <article>
     <?php
         if(is_array($arr_valid['msg'])){
+            print '<ul class="error-msg">';
             foreach ($arr_valid['msg'] as $msg) {
-                print '<ul class="error_msg">';
                 print '<li>' . e($msg) . '</li>';
-                print '</ul>';
             }
+            print '</ul>';
         }
     ?>
         <section class="share">
             <h2>今日の幸せをシェアしよう！</h2>
             <form method="post">
-                <p class="form_label"><label for="name">お名前&#040;Your&nbsp;Name&#041;</label></p>
-                <p class="form_name"><input type="text" id="name" name="name" placeholder="20文字以内"></p>
-                <p class="form_label"><label for="tips">今日の幸せな出来事&#040;Today&#39;s&nbsp;Happiness&#41;</label></p>
-                <p class="form_tips"><textarea id="tips" name="tips" row="8" cols="13" wrap="soft" placeholder="100文字以内"></textarea></p>
+                <p class="form-label"><label for="name">お名前&#040;Your&nbsp;Name&#041;</label></p>
+                <p class="form-name"><input type="text" id="name" name="name" placeholder="20文字以内"></p>
+                <p class="form-label"><label for="tips">今日の幸せな出来事&#040;Today&#39;s&nbsp;Happiness&#41;</label></p>
+                <p class="form-tips"><textarea id="tips" name="tips" row="8" cols="13" wrap="soft" placeholder="100文字以内"></textarea></p>
                 <p><input id=submit type="submit" name="submit" value="シェア(Share)"></p>
             </form>
         </section>
@@ -150,11 +150,11 @@ function e(string $str, string $charset = 'UTF-8'):string {
             <?php
             if(is_array($data)){
                 foreach ($data as $disp_array) {
-                    print '<div class="content_wrapper">';
+                    print '<div class="content-wrapper">';
                         print '<p class="tips">' . $disp_array[2] . '</p>';
-                        print '<div class="date_name_wrapper">';
+                        print '<div class="date-name-wrapper">';
                             print '<p class="name">' . $disp_array[1] . '</p>';
-                            print '<p class="input_date">' . $disp_array[0] . '</p>';
+                            print '<p class="input-date">' . $disp_array[0] . '</p>';
                         print '</div>';
                     print '</div>';
                 }
