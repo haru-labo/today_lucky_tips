@@ -115,13 +115,15 @@ function e(string $str, string $charset = 'UTF-8'):string {
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Today's Lucky Tips</title>
-    <link rel="stylesheet" href="css/lucky_tips.css">
+    <title>Today's&nbsp;happiness</title>
+    <link rel="stylesheet" href="css/todays_happiness.css">
     <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru" rel="stylesheet">
+    <link rel="apple-touch-icon" type="image/png" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicons/icon-192x192.png">
 </head>
 <body>
     <header>
-        <h1>Today&#39;s&nbsp;Lucky&nbsp;Tips</h1>
+        <h1>Today&#39;s&nbsp;Happiness</h1>
     </header>
     <article>
     <?php
@@ -138,7 +140,7 @@ function e(string $str, string $charset = 'UTF-8'):string {
             <form method="post">
                 <p class="form_label"><label for="name">お名前&#040;Your&nbsp;Name&#041;</label></p>
                 <p class="form_name"><input type="text" id="name" name="name" placeholder="20文字以内"></p>
-                <p class="form_label"><label for="tips">今日の幸せな出来事&#040;Today&#39;s&nbsp;Lucky&nbsp;Tips&#041;</label></p>
+                <p class="form_label"><label for="tips">今日の幸せな出来事&#040;Today&#39;s&nbsp;Happiness&#41;</label></p>
                 <p class="form_tips"><textarea id="tips" name="tips" row="8" cols="13" wrap="soft" placeholder="100文字以内"></textarea></p>
                 <p><input id=submit type="submit" name="submit" value="シェア(Share)"></p>
             </form>

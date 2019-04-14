@@ -4,11 +4,10 @@
 }
 
 body {
-    background-color: #faf9f4;
-    /* border: 2px solid #c0da95; */
+    background-color: #41EAD4;
     font-family: 'Kosugi Maru', sans-serif;
     margin: 0 auto;
-    width: 1000px;
+    width: 1080px;
 }
 
 article {
@@ -16,37 +15,47 @@ article {
 }
 
 header {
-    background-color: #ffffff;
+    border-bottom: 1.6px solid #011627;
+    margin-bottom: 8px;
     width: 100%;
 }
 
 .share {
     justify-content: space-between;
     align-items: center;
-    background-color: #7ecce5;
+    background-color: #41EAD4;
     display: flex;
 }
 
 h1 {
-    /* border: 4px solid #ffdc00; */
-    background-color: #ffffff;
-    color: #000000;
-    font-size: 32px;
-    line-height: 120%;
-    padding: 24px 0;
-    text-align: center;
+    color: #FDFFFC;
+    font-size: 40px;
+    padding: 16px 0;
+    text-align: left;
+}
+
+h1:before {
+    background-image: url(../img/bird_icon.svg);
+    background-size: contain;
+    content: '';
+    display: inline-block;
+    height: 46px;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: 46px;
 }
 
 h2 {
-    color: #ffffff;
+    color: #FDFFFC;
     display: inline-block;
-    font-size: 48px;
+    font-size: 56px;
     text-align: center;
     padding: 0 4px;
     width: 50%;
 }
 
 h3 {
+    color: #011627;
     font-size: 24px;
     margin: 10px 0 5px 0;
     padding: 0 5px 5px 5px;
@@ -59,14 +68,15 @@ h3:before {
     content: '';
     display: inline-block;
     height: 25px;
-    margin-right: 2px;
+    margin-right: 4px;
+    margin-left: 2px;
     vertical-align: middle;
     width: 25px;
 }
 
 form {
-    margin: 5px auto;
-    padding: 0 4px;
+    margin: 5px 0 5px 10px;
+    padding: 0 0 0 8px;
     width: 50%;
 }
 
@@ -77,11 +87,9 @@ form {
 }
 
 #submit {
-    background-color: #ffa653;
-    border-top: 2px solid #ffe1c6;
-    border-left: 2px solid #ffe1c6;
-    border-bottom: 2px solid #664220;
-    border-right: 2px solid #664220;
+    background-color: #FF9F1C;
+    border: outset;
+    border-radius: 8px;
     color: #ffffff;
     font-family: 'Kosugi Maru', sans-serif;
     font-size: 16px;
@@ -96,36 +104,53 @@ form {
 }
 
 .form_name {
+    color: #011627;
     margin-bottom: 10px;
 }
 
 .form_tips {
+    color: #011627;
     margin-bottom: 5px;
 }
 
 .form_name input {
-    width: 320px;
+    background-color: #FDFFFC;
+    border: inset;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Kosugi Maru', sans-serif;
+    height: 32px;
+    padding: 2px 4px;
+    width: 100%;
 }
 
 .form_tips textarea {
-    word-wrap: break-word;
+    background-color: #FDFFFC;
+    border: inset;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Kosugi Maru', sans-serif;
     height: 160px;
-    width: 400px;
+    padding: 4px;
+    word-wrap: break-word;
+    width: 100%;
 }
 
 .contents {
     align-content: space-around;
-    /* background-color: #9eda74; */
+    background-color: #FDFFFC;
+    border-radius: 15px;
     clear: both;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 4px;
     padding: 10px 5px;
 }
 
 .content_wrapper {
-    /* border: solid 4px #00920c; */
     background-color: #ffffff;
+    border: 2px solid #41EAD4;
     border-radius: 15px;
     height: 160px;
     margin: 5px 0;
