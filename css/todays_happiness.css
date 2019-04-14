@@ -98,9 +98,10 @@ form {
 }
 
 .error_msg li {
-    color: red;
+    color: #F71735;
     font-weight: bold;
     list-style: none;
+    text-align: right;
 }
 
 .form_name {
