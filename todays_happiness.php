@@ -6,19 +6,33 @@ $tips = '';
 //読み込んだデータ格納用配列
 $data = [];
 
+//入力ボックス表示用
+$in_name = '';
+$in_tips = '';
+
 //エラー用
 $arr_valid = ['msg' => [], 'result' => true];
 $valid_msg = [];
 
-//ログへの書き込み
+//POST時の処理
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //入力ボックス表示用にPOSTされたデータを代入
+    $in_name = e($_POST['name']);
+    $in_tips = e($_POST['tips']);
+
+    //バリデーション
     $arr_valid = validation($_POST);
     if ($arr_valid['result'] === TRUE) {
-        $name_date = date('Y/m/d H:i:s') . "\n" . $_POST['name'] . "\n";
+        $name_date = date('Y/m/d H:i:s') . PHP_EOL . $_POST['name'] . PHP_EOL;
         //出来事は改行を削除
-        $tips = del_enter($_POST['tips']) . "\n";
+        $tips = del_enter($_POST['tips']) . PHP_EOL;
+
+        //入力ボックスをクリア
+        $in_name = '';
+        $in_tips = '';
     }
 
+    //ログへの書き込み
     if (($fp = fopen($log_file, 'a')) !== FALSE) {
         if (fwrite($fp, $name_date) === FALSE || fwrite($fp, $tips) === FALSE) {
             print '書き込みに失敗しました' . $log_file;
@@ -54,36 +68,31 @@ function validation($check_data) {
     $error_msg = [];
     $result = true;
 
-    if (exist_check($check_data['name']) === FALSE) {
+    if (!exist_check($check_data['name'])) {
         $error_msg[] = '名前を入力してください';
         $result = false;
     }
 
-    if (exist_check($check_data['tips']) === FALSE) {
+    if (!exist_check($check_data['tips'])) {
         $error_msg[] = '出来事を入力してください';
         $result = false;
     }
 
-    if ($result === FALSE) {
+    if (!$result) {
         $arr_ret['msg'] = $error_msg;
         $arr_ret['result'] = $result;
         return $arr_ret;
-    } else {
-        return length_check($check_data);
     }
+        return max_length_check($check_data);
 }
 
 //null、空文字、空白文字のチェック
 function exist_check(string $str): bool {
-    if (!isset($str) || $str === '' || preg_match( "/^\s|　+$/", $str)) {
-        return false;
-    } else {
-        return true;
-    }
+    return !(!isset($str) || $str === '' || preg_match( "/^\s|　+$/", $str));
 }
 
 //文字数チェック
-function length_check($check_data) {
+function max_length_check($check_data) {
     $arr_ret['result'] = true;
     $error_msg = [];
     if (mb_strlen($check_data['name']) > 20) {
@@ -139,9 +148,9 @@ function e(string $str, string $charset = 'UTF-8'):string {
             <h2>今日の幸せをシェアしよう！</h2>
             <form method="post">
                 <p class="form-label"><label for="name">お名前&#040;Your&nbsp;Name&#041;</label></p>
-                <p class="form-name"><input type="text" id="name" name="name" placeholder="20文字以内"></p>
+                <p class="form-name"><input type="text" id="name" name="name" placeholder="20文字以内" <?php print "value = '$in_name'"; ?>></p>
                 <p class="form-label"><label for="tips">今日の幸せな出来事&#040;Today&#39;s&nbsp;Happiness&#41;</label></p>
-                <p class="form-tips"><textarea id="tips" name="tips" row="8" cols="13" wrap="soft" placeholder="100文字以内"></textarea></p>
+                <p class="form-tips"><textarea id="tips" name="tips" row="8" cols="13" wrap="soft" placeholder="100文字以内"><?php print $in_tips; ?></textarea></p>
                 <p><input id=submit type="submit" name="submit" value="シェア(Share)"></p>
             </form>
         </section>
