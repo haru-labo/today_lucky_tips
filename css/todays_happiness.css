@@ -109,7 +109,7 @@ form {
     margin-bottom: 10px;
 }
 
-.form-tips {
+.form-content {
     color: #011627;
     margin-bottom: 5px;
 }
@@ -125,7 +125,7 @@ form {
     width: 100%;
 }
 
-.form-tips textarea {
+.form-content textarea {
     background-color: #FDFFFC;
     border: inset;
     border-radius: 8px;
@@ -171,7 +171,7 @@ form {
     word-wrap: break-word;
 }
 
-.tips {
+.content {
     font-size: 15px;
     margin: 5px;
 }
