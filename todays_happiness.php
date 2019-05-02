@@ -1,18 +1,17 @@
 <?php
-require_once 'include/model/validation.php';
-require_once 'include/model/encode.php';
+require_once 'include\model\validation.php';
+require_once 'include\model\encode.php';
+require_once 'include\model\DbInsert.php';
+require_once 'include\model\DbSelect.php';
 
-$log_file = 'log/log.txt';
-$name_date = '';
+//データベース格納用
+$name = '';
 $content = '';
-
 //読み込んだデータ格納用配列
 $data = [];
-
 //入力ボックス表示用
 $in_name = '';
 $in_content = '';
-
 //エラー用
 $arr_valid = ['msg' => [], 'result' => true];
 $valid_msg = [];
@@ -25,44 +24,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //バリデーション
     $arr_valid = validation($_POST);
-    if ($arr_valid['result'] === TRUE) {
-        $name_date = date('Y/m/d H:i:s') . PHP_EOL . $_POST['name'] . PHP_EOL;
+    if ($arr_valid['result']) {
+        $name = $in_name;
         //出来事は改行を削除
-        $tips = del_enter($_POST['content']) . PHP_EOL;
-
+        $content = del_enter($in_content);
+        //INSERTSQL実行
+        insert_content($name, $content);
         //入力ボックスをクリア
         $in_name = '';
         $in_content = '';
     }
-
-    //ログへの書き込み
-    if (($fp = fopen($log_file, 'a')) !== FALSE) {
-        if (fwrite($fp, $name_date) === FALSE || fwrite($fp, $content) === FALSE) {
-            print '書き込みに失敗しました' . $log_file;
-        }
-        fclose($fp);
-    }
 }
 
 //読み込みして表示
-if (is_readable($log_file) === TRUE) {
-    if (($fp = fopen($log_file, 'r')) !== FALSE) {
-        $count = 0;
-        $arr_number = 0;
-
-        //データを表示ブロックごとにまとめる
-        while (($tmp = fgets($fp)) !== FALSE) {
-            $data[$arr_number][] = e($tmp);
-            $count++;
-            if ($count % 3 === 0) {
-                $arr_number++;
-            }
-        }
-        fclose($fp);
-    }
-} else {
-    $data[] = 'ファイルが存在していません';
-}
+$data = select_all_contents();
 
 include_once 'include\view\happiness_list.php';
-?>

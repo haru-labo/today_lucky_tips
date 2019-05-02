@@ -144,7 +144,7 @@ form {
     clear: both;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-top: 4px;
     padding: 10px 5px;
 }
@@ -154,7 +154,7 @@ form {
     border: 2px solid #41EAD4;
     border-radius: 15px;
     height: 160px;
-    margin: 5px 0;
+    margin: 10px 11.75px;
     position: relative;
     width: 240px;
 }

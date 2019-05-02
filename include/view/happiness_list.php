@@ -38,10 +38,10 @@
             if(is_array($data)){
                 foreach ($data as $disp_array) {
                     print '<div class="content-wrapper">';
-                        print '<p class="content">' . $disp_array[2] . '</p>';
+                        print '<p class="content">' . $disp_array['CONTENT'] . '</p>';
                         print '<div class="date-name-wrapper">';
-                            print '<p class="name">' . $disp_array[1] . '</p>';
-                            print '<p class="input-date">' . $disp_array[0] . '</p>';
+                            print '<p class="name">' . $disp_array['NAME'] . '</p>';
+                            print '<p class="input-date">' . $disp_array['CREATED_AT'] . '</p>';
                         print '</div>';
                     print '</div>';
                 }

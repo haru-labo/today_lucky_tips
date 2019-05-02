@@ -1,2 +1,2 @@
 log/log.txt
-include/config/DbManager.php
+include/config/const.php

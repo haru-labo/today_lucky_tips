@@ -10,7 +10,7 @@ function validation($check_data) {
         $result = false;
     }
 
-    if (!exist_check($check_data['tips'])) {
+    if (!exist_check($check_data['content'])) {
         $error_msg[] = '出来事を入力してください';
         $result = false;
     }
@@ -37,7 +37,7 @@ function max_length_check($check_data) {
         $arr_ret['result'] = false;
     }
 
-    if (mb_strlen($check_data['tips']) > 100) {
+    if (mb_strlen($check_data['content']) > 100) {
         $error_msg[] = '出来事は100文字以内で入力してください';
         $arr_ret['result'] = false;
     }
@@ -52,7 +52,3 @@ function del_enter(string $str): string {
     return str_replace(PHP_EOL, '', $str);
 }
 
-//エスケープ
-function e(string $str, string $charset = 'UTF-8'):string {
-    return htmlspecialchars($str, ENT_QUOTES | ENT_HTML5, $charset);
-}
