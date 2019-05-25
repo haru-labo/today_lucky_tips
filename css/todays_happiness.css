@@ -10,10 +10,7 @@ body {
     width: 1080px;
 }
 
-article {
-    margin-bottom: 5px;
-}
-
+/*** header ***/
 header {
     border-bottom: 1.6px solid #011627;
     margin-bottom: 8px;
@@ -43,6 +40,12 @@ h1:before {
     margin-right: 4px;
     vertical-align: middle;
     width: 46px;
+}
+
+/*** form ***/
+
+article {
+    margin-bottom: 5px;
 }
 
 h2 {
@@ -86,11 +89,45 @@ form {
     margin-top: 8px;
 }
 
+.form-img {
+    margin: 8px 0;
+}
+
+.form-img label {
+    background-color: #011627;
+    border: outset;
+    border-radius: 8px;
+    color: #FDFFFC;
+    cursor: pointer;
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 16px;
+    line-height: 100%;
+    padding: 4px 4px 4px 0;
+    vertical-align: middle;
+}
+
+.form-img label::before {
+    content: '';
+    display: inline-block;
+    background-image: url(../img/camera.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+#upload-img {
+    display: none;
+}
+
 #submit {
     background-color: #FF9F1C;
     border: outset;
     border-radius: 8px;
     color: #ffffff;
+    cursor: pointer;
     font-family: 'Kosugi Maru', sans-serif;
     font-size: 16px;
     margin-bottom: 10px;
@@ -136,6 +173,8 @@ form {
     word-wrap: break-word;
     width: 100%;
 }
+
+/*** contents view ***/
 
 .contents {
     align-content: space-around;

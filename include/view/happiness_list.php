@@ -25,11 +25,33 @@
         <section class="share">
             <h2>今日の幸せをシェアしよう！</h2>
             <form method="post">
-                <p class="form-label"><label for="name">お名前&#040;Your&nbsp;Name&#041;</label></p>
-                <p class="form-name"><input type="text" id="name" name="name" placeholder="20文字以内" <?php print "value = '$in_name'"; ?>></p>
-                <p class="form-label"><label for="tips">今日の幸せな出来事&#040;Today&#39;s&nbsp;Happiness&#41;</label></p>
-                <p class="form-content"><textarea id="content" name="content" row="8" cols="13" wrap="soft" placeholder="100文字以内"><?php print $in_content; ?></textarea></p>
-                <p><input id=submit type="submit" name="submit" value="シェア(Share)"></p>
+                <p class="form-label">
+                    <label for="name">
+                        お名前&#040;Your&nbsp;Name&#041;
+                    </label>
+                </p>
+                <p class="form-name">
+                    <input type="text" id="name" name="name" placeholder="20文字以内" <?php print "value = '$in_name'"; ?>>
+                </p>
+                <p class="form-label">
+                    <label for="tips">
+                        今日の幸せな出来事&#040;Today&#39;s&nbsp;Happiness&#41;
+                    </label>
+                </p>
+                <p class="form-content">
+                    <textarea id="content" name="content" row="8" cols="13" wrap="soft" placeholder="100文字以内">
+                        <?php print $in_content; ?>
+                    </textarea>
+                </p>
+                <p class="form-img">
+                    <label for="upload-img">
+                        画像を追加&#040;Add&nbsp;Image&#41;
+                        <input id="upload-img" type="file" id="img" name="img">
+                    </label>
+                </p>
+                <p>
+                    <input id="submit" type="submit" name="submit" value="シェア(Share)">
+                </p>
             </form>
         </section>
         <section class="contents">
